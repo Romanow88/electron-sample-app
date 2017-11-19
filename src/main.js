@@ -1,10 +1,12 @@
 const electron = require('electron')
+const devTools = require('electron-debug')({showDevTools: true});
 // Module to control application life.
 const app = electron.app
+
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
-
 const path = require('path')
+
 const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
