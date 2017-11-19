@@ -11,9 +11,21 @@
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
 
+
+    </br>
+    </br>
+    <input type="text" id="url">
+    <button id="load">Load URL</button>
+
     <script>
-      // You can also require other files to run in this process
-      require('../renderer.js')
+        let $ = require('./jquery.min.js')
+        require('../renderer.js')
+
+      $(document).ready(function () {
+          $("#load").click(function (e) {
+              window.location.href = $("#url").val()
+          })
+      })
     </script>
   </body>
 </html>
