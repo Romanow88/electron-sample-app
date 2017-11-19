@@ -9,6 +9,11 @@ npm install
 Running:
 
 ``` 
-npm start //start the app
-npm run package-win // build a win distro
+npm start
+```
+
+Build (win32): 
+
+```
+npm run package-win
 ```
