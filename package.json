@@ -1,0 +1,13 @@
+{
+  "name": "sampleElectronApp",
+  "version": "1.0.0",
+  "description": "A sample Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/Romanow88/electron-sample-app",
+  "devDependencies": {
+    "electron": "~1.7.8"
+  }
+}
