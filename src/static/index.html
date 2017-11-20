@@ -5,17 +5,22 @@
     <title>Sample Application Electron!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Main renderer window</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    </br>
+    </br>
+
+    Work Directory is: <script>document.write(process.cwd())</script>
 
 
     </br>
     </br>
     <input type="text" id="url">
-    <button id="load">Load URL</button>
+    <button id="load">Load TTA</button>
+
 
     <script>
         let $ = require('./jquery.min.js')
@@ -23,7 +28,8 @@
 
       $(document).ready(function () {
           $("#load").click(function (e) {
-              window.location.href = $("#url").val()
+            let modal = window.open($("#url").val(), 'modal')
+            console.log(modal)
           })
       })
     </script>

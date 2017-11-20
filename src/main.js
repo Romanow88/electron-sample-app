@@ -15,11 +15,40 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600,
+    webPreferences: {
+      nodeIntegration:true,
+      nativeWindowOpen:true
+    }
+  })
   mainWindow.setMenu(null);
 
+  console.log("Created main window with handler: " + mainWindow.getNativeWindowHandle().toString("hex"))
 
-    // and load the index.html of the app.
+  mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
+    if (frameName === 'modal') {
+      // open window as modal
+      event.preventDefault()
+      Object.assign(options, {
+        modal: false,
+        parent: mainWindow,
+        width: 800,
+        height: 600,
+        webPreferences: {
+          nodeIntegration:false,
+          nativeWindowOpen:false
+        }
+      })
+      event.newGuest = new BrowserWindow(options)
+      event.newGuest.setMenu(null)
+      console.log("Created child window with handler: " + event.newGuest.getNativeWindowHandle().toString("hex"))
+
+    }
+  })
+
+
+
+  // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'static/index.html'),
     protocol: 'file:',
