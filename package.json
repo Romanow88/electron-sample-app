@@ -9,7 +9,7 @@
   },
   "repository": "https://github.com/Romanow88/electron-sample-app",
   "devDependencies": {
-    "electron": "~1.7.8",
+    "electron": "~>1.7.11",
     "electron-packager": "^9.1.0"
   },
   "dependencies": {
